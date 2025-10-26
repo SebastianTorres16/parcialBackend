@@ -10,7 +10,13 @@ const app = express();
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors("https://parcial-frontend-zeta.vercel.app"));
+app.use(
+  cors({
+    origin: "https://parcial-frontend-zeta.vercel.app", // tu frontend
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 
 //rutas del backend
 
